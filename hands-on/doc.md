@@ -12,7 +12,7 @@ Experience Builder のインストール方法に関しては、[ArcGIS Experine
 本ガイドでは簡単なバッファー検索を行う In-Panel ウィジェットを開発していきます。ウィジェットを追加するには `<Web AppBuilder のインストール ディレクトリ>\client\your-extensions\widgets\` にウィジェットのフォルダーを配置します。
 
 1. `<Experience Builder のインストール ディレクトリ>\client\your-extensions\widgets\` に新規で `buffer` という名前で新しいフォルダーを作成します。
-![フォルダー名](./img/folder.jpg)  
+![フォルダー名](./img/folder.png)  
 フォルダー名がウィジェット名となります。ウィジェット名は半角英数字である必要があります。
 
 2. Exerience Builder のウィジェットを作成するにあたっての最低限のフォルダー構成を作成します。  
