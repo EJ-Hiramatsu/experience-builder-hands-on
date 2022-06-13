@@ -499,7 +499,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   }
   /** 4-8 必須項目チェック追加 End */
 
-  /** 4-5 UI コンポーネント用ファンクション Start */
+  /** 4-7 レイヤー情報の取得処理追加 End */
   // ...
 ```
 
@@ -541,7 +541,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   }
   /** 4-9 バッファー検索の本処理追加 End */
 
-  /** 4-5 UI コンポーネント用ファンクション Start */
+  /** 4-7 レイヤー情報の取得処理追加 End */
   // ...
 ```
 
@@ -601,7 +601,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   }
   /** 4-10 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 End */
 
-  /** 4-5 UI コンポーネント用ファンクション Start */
+  /** 4-7 レイヤー情報の取得処理追加 End */
   // ...
 ```
 
@@ -664,7 +664,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   }
   /** 4-11 バッファー、マーキング用のシンボル定義を追加 End */
 
-  /** 4-5 UI コンポーネント用ファンクション Start */
+  /** 4-7 レイヤー情報の取得処理追加 End */
   // ...
 ```
 
