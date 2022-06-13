@@ -446,9 +446,33 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 
 > ここでは、マップ ウィジェットで設定されているマップ情報を取得して `State` に設定しています。
 > また、マップ ウィジェット内でクリックした際のイベントを取得し、処理を実行します。実際にクリック イベントが発生した際は、実行可否のチェック処理とバッファー検索の本処理が実行されます。
+
+7. マップ ウィジェットに設定されているレイヤー情報を取得する処理を記述します。
+
+```tsx
+  // ...
+  /** 4-6 マップ ウィジェット イベント追加 End */
+
+  /** 4-7 レイヤー情報の取得処理追加 Start */
+  // マップ ウィジェットに設定されいてるレイヤー情報の取得
+  setLayerList = (layers: Collection<LayerView>) => {
+    const list = [];
+    for (let idx = layers.length; 0 < idx; idx--) {
+      const layer = layers.items[idx - 1];
+      list[idx] = { id: layer.layer.id, name: layer.layer.title }
+    }
+    return list
+  }
+  /** 4-7 レイヤー情報の取得処理追加 End */
+
+  /** 4-5 UI コンポーネント用ファンクション Start */
+  // ...
+```
+
+> この処理にてウィジェット画面のレイヤーリストに設定しているレイヤーを表示することができます。  
 > ここまでの内容でウィジェット画面の UI を Web ブラウザー上で確認することができます。
 
-7. 必須項目チェック処理を記述します。
+8. 必須項目チェック処理を記述します。
 バッファー検索処理では、バッファーの半径とレイヤーが設定されていないと処理が成り立たないため必須条件とします。
 条件を満たさない場合エラーとし、アラート メッセージを表示します。
 
@@ -456,7 +480,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   // ...
   /** 4-6 マップ ウィジェット イベント追加 End */
 
-  /** 4-7 必須項目チェック追加 Start */
+  /** 4-8 必須項目チェック追加 Start */
   // 必須項目入力チェック
   eventErrorCheck = () => {
     let requrirdMsg = ""; /** エラーメッセージ格納用 */
@@ -473,19 +497,19 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 
     return requrirdMsg;
   }
-  /** 4-7 必須項目チェック追加 End */
+  /** 4-8 必須項目チェック追加 End */
 
   /** 4-5 UI コンポーネント用ファンクション Start */
   // ...
 ```
 
-8. バッファー検索の本処理を記述します。
+9. バッファー検索の本処理を記述します。
 
 ``` tsx
   // ...
-  /** 4-7 必須項目チェック追加 End */
+  /** 4-8 必須項目チェック追加 End */
 
-  /** 4-8 バッファー検索の本処理追加 Start */
+  /** 4-9 バッファー検索の本処理追加 Start */
   // バッファー検索の本処理
   doBufferSerch = (evt: Object) => {
 
@@ -515,7 +539,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
       this.layerGetAndMarking(buffer);
     }
   }
-  /** 4-8 バッファー検索の本処理追加 End */
+  /** 4-9 バッファー検索の本処理追加 End */
 
   /** 4-5 UI コンポーネント用ファンクション Start */
   // ...
@@ -528,13 +552,13 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 > 4. バッファーが正常に作成された場合、そのバッファーをマップ ウィジェットに表示する。
 > 5. バッファー内に含まれるレイヤーの取得およびマーキングの処理の呼び出し
 
-9. バッファー内に含まれるレイヤーの取得およびマーキングの処理を記述します。
+10. バッファー内に含まれるレイヤーの取得およびマーキングの処理を記述します。
 
 ```tsx
   // ...
-  /** 4-8 バッファー検索の本処理追加 End */
+  /** 4-9 バッファー検索の本処理追加 End */
 
-  /** 4-9 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 Start */
+  /** 4-10 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 Start */
   // バッファー内のレイヤー取得およびマーキング処理
   layerGetAndMarking = (buffer: Polygon) => {
     // プルダウンで選択したレイヤーをウェブマップから取得
@@ -575,7 +599,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
         });
     }
   }
-  /** 4-9 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 End */
+  /** 4-10 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 End */
 
   /** 4-5 UI コンポーネント用ファンクション Start */
   // ...
@@ -587,14 +611,14 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 > << 3. の処理は 2. で抽出されたフィーチャの件数分繰り返す>>
 > 3. フィーチャのジオメトリ タイプに合ったマーキング用のグラフィックを作成し、マップ ウィジェット上の対象のフィーチャに対して重ねて表示
 
-10. バッファー、マーキング用のシンボル定義を記述します。
+11. バッファー、マーキング用のシンボル定義を記述します。
 バッファー、マーキング用のシンボル定義を外出し、ファンクション化しているため定義を記述します。
 
 ```tsx
   // ...
-  /** 4-9 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 End */
+  /** 4-10 バッファー内に含まれるレイヤーの取得およびマーキングの処理追加 End */
   
-  /** 4-10 バッファー、マーキング用のシンボル定義を追加 Start */
+  /** 4-11 バッファー、マーキング用のシンボル定義を追加 Start */
   // バッファー用のシンボル（ポイント）を定義
   setBufferSymbol = () => {
     return new SimpleFillSymbol({
@@ -638,7 +662,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
       }
     });
   }
-  /** 4-10 バッファー、マーキング用のシンボル定義を追加 End */
+  /** 4-11 バッファー、マーキング用のシンボル定義を追加 End */
 
   /** 4-5 UI コンポーネント用ファンクション Start */
   // ...
