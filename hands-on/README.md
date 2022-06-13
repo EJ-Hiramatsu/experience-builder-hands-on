@@ -433,7 +433,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
             return;
           }
           // バッファー検索の本処理を実行
-          this.doClickEvent(evt);
+          this.doBufferSerch(evt);
         }
       });
     }
