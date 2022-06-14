@@ -9,9 +9,9 @@ Experience Builder のインストール方法に関しては、[ArcGIS Experine
 
 ### 1. ウィジェット ボタンを配置する
 
-本ガイドでは簡単なバッファー検索を行う In-Panel ウィジェットを開発していきます。ウィジェットを追加するには `<Web AppBuilder のインストール ディレクトリ>\client\your-extensions\widgets\` にウィジェットのフォルダーを配置します。
+本ガイドでは簡単なバッファー検索を行う In-Panel ウィジェットを開発していきます。ウィジェットを追加するには `<Experience Builder のインストール ディレクトリ>\client\your-extensions\widgets\` にウィジェットのフォルダーを配置します。
 
-1. `<Experience Builder のインストール ディレクトリ>\client\your-extensions\widgets\` に新規で `buffer` という名前で新しいフォルダーを作成します。
+1. `<Experience Builder のインストール ディレクトリ>\client\your-extensions\widgets\` に新規で `buffer` という名前で新しいフォルダーを作成します。  
 ![フォルダー名](./img/folder.png)  
 フォルダー名がウィジェット名となります。ウィジェット名は半角英数字である必要があります。
 
@@ -26,7 +26,7 @@ Experience Builder のインストール方法に関しては、[ArcGIS Experine
 
 5. `buffer` フォルダー直下にある `manifest.json` ファイルを開きます。
 
-6. `name` 属性の値を `buffer` に変更します。
+6. `name` 属性の値を `buffer`、`label` 属性の値を `Buffer` に変更します。
 
 ```json
 {
@@ -190,7 +190,7 @@ export default class Setting extends React.PureComponent<AllWidgetSettingProps<a
 
 // ...
 export default class Setting extends React.PureComponent<AllWidgetSettingProps<any>, any> {
-    /** 4-3 コンポーネントのイベント処理追記 Start */
+    /** 3-3 コンポーネントのイベント処理追記 Start */
     // 対象のマップを設定
     onMapWidgetSelected = (useMapWidgetIds: string[]) => {
         this.props.onSettingChange({
@@ -201,13 +201,12 @@ export default class Setting extends React.PureComponent<AllWidgetSettingProps<a
 
     // 距離単位の名称と値を設定
     setUint = (distanceUnit: React.FormEvent<HTMLInputElement>) => {
-        console.log("setUint");
         this.props.onSettingChange({
             id: this.props.id,
             config: this.props.config.set('distanceUnit', distanceUnit.currentTarget.value).set('distanceUnitName', distanceUnit.currentTarget.title)
         });
     };
-    /** 4-3 コンポーネントのイベント処理追記 End */
+    /** 3-3 コンポーネントのイベント処理追記 End */
 
     /** 3-2 設定画面の画面構成追加 Start */
 // ...
