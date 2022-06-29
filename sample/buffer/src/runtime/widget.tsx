@@ -14,17 +14,15 @@ import LayerView from "esri/views/layers/LayerView";
 import Collection from "esri/core/Collection";
 export default class Widget extends React.PureComponent<AllWidgetProps<any>, any> {
 
-  constructor(props) {
-    super(props);
-    // 処理内で利用する変数を定義
-    this.state = {
-      jimuMapView: null, /** 対象 Webマップ */
-      webmapLayers: [], /** Web マップのレイヤー情報 */
-      selectLayer: null, /** 選択したレイヤー情報 */
-      distance: 0, /** バッファーの半径距離 */
-      widgetEnable: false /** バッファー処理実行フラグ */
-    };
-  }
+
+  // 処理内で利用する変数を定義
+  state = {
+    jimuMapView: null, /** 対象 Webマップ */
+    webmapLayers: [], /** Web マップのレイヤー情報 */
+    selectLayer: null, /** 選択したレイヤー情報 */
+    distance: 0, /** バッファーの半径距離 */
+    widgetEnable: false /** バッファー処理実行フラグ */
+  };
 
   // マップ ウィジェットが変更されたときにマップ情報とクリックイベントの設定
   activeViewChangeHandler = (jmv: JimuMapView) => {
@@ -54,7 +52,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
   // 必須項目入力チェック
   eventErrorCheck = () => {
     let requrirdMsg = ""; /** エラーメッセージ格納用 */
-    
+
     // レイヤーが選択されていない場合はエラー
     if (this.state.selectLayer.length == 0) {
       requrirdMsg = "対象のレイヤーを選択してください。\n";

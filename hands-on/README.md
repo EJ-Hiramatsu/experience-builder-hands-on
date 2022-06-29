@@ -51,15 +51,28 @@ Experience Builder のインストール方法に関しては、[ArcGIS Experine
 }
 ```
 
-8. `dependency` 属性を追加します。値には `jimu-arcgis` を設定し、保存します。  
+8. `defaultSize` 属性内にある `width`、`height` 属性の値を変更します。
+`defaultSize` 属性を変更することで、ウィジェットを追加した際のウィジェットのサイズを変更することができます。
+
+```json
+{
+  // ...
+  "defaultSize": {
+    "width": 350,
+    "height": 200
+  }
+}
+```
+
+9. `dependency` 属性を追加します。値には `jimu-arcgis` を設定し、保存します。  
 `dependency` 属性に `jimu-arcgis` を設定することでウィジェット内で ArcGIS API for JavaScript を使用することができます。
 
 ```json
 {
   // ...
   "defaultSize": {
-    "width": 800,
-    "height": 500
+    "width": 350,
+    "height": 200
   },
   "dependency": "jimu-arcgis"
 }
@@ -69,7 +82,7 @@ Experience Builder のインストール方法に関しては、[ArcGIS Experine
 > 
 > ウィジェットの名前やバージョン等を設定するファイルです。`properties` 属性でカスタム ウィジェットのプロパティを構成できます。ウィジェットのプロパティについては、<a href="https://esrijapan.github.io/arcgis-dev-resources/tips/experience-builder/widget-development/widget-manifest/" target="_blank">Widget manifest</a>をご参照ください。
 
-9. Experience Builder のウィジェットの追加画面で表示されるウィジェット名をローカライズします。ウィジェットのローカライズは 2. で作成した `runtime` フォルダーの直下に `translations` フォルダーを作成し、`translations` フォルダーに設定していきます。  
+10. Experience Builder のウィジェットの追加画面で表示されるウィジェット名をローカライズします。ウィジェットのローカライズは 2. で作成した `runtime` フォルダーの直下に `translations` フォルダーを作成し、`translations` フォルダーに設定していきます。  
 `buffer\src\runtime\transelations` フォルダーの直下に `ja.js` ファイルを作成し、以下のコードを入力し保存します。
 
 ```js
@@ -82,7 +95,7 @@ define({
 > 
 > カスタム ウィジェットを多言語化する場合に使用します。アクセスするブラウザーのロケールにより該当する言語が表示されます。`_widgetLabel` はウィジェット追加時に表示されるラベルをローカライズするための固有の属性です。
 
-10. Experience Builder を起動し、アプリケーションを作成します。ウィジェットの追加画面に「バッファー検索」というウィジェット名が表示されます。  
+11. Experience Builder を起動し、アプリケーションを作成します。ウィジェットの追加画面に「バッファー検索」というウィジェット名が表示されます。  
 ![追加画面](./img/widgetPanel.png)
 
 > #### icon.svg
@@ -256,17 +269,14 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 export default class Widget extends React.PureComponent<AllWidgetProps<any>, any> {
 
   /** 4-2 State の定義 Start */
-  constructor(props) {
-    super(props);
-    // 処理内で利用する変数を定義
-    this.state = {
-      jimuMapView: null, /** 対象 Webマップ */
-      webmapLayers: [], /** Web マップのレイヤー情報 */
-      selectLayer: null, /** 選択したレイヤー情報 */
-      distance: 0, /** バッファーの半径距離 */
-      widgetEnable: false /** バッファー処理実行フラグ */
-    };
-  }
+  // 処理内で利用する変数を定義
+  state = {
+    jimuMapView: null, /** 対象 Webマップ */
+    webmapLayers: [], /** Web マップのレイヤー情報 */
+    selectLayer: null, /** 選択したレイヤー情報 */
+    distance: 0, /** バッファーの半径距離 */
+    widgetEnable: false /** バッファー処理実行フラグ */
+  };
   /** 4-2 State の定義 End */
 
 }

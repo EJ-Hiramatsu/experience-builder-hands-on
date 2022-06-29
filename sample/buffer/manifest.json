@@ -2,7 +2,6 @@
     "name": "buffer",
     "type": "widget",
     "version": "1.6.0",
-    "dependency": "jimu-arcgis",
     "exbVersion": "1.6.0",
     "author": "EJ hiramatsu",
     "description": "A buffer is created and the specified layer in it is marked.",
@@ -16,5 +15,6 @@
     "defaultSize": {
       "width": 350,
       "height": 200
-    }
+    },
+    "dependency": "jimu-arcgis"
   }
