@@ -7,7 +7,7 @@
 * [Experience Builder (Developer Edition)](https://developers.arcgis.com/experience-builder/)
 * [ArcGIS Developer](https://developers.arcgis.com/)
 
-ArcGIS の開発キットを使用して開発を行う場合は ArcGIS Developer へのサインアップ（[ArcGIS Developer](https://developers.arcgis.com/)）が必要です。
+ArcGIS の開発キットを使用して開発を行う場合は ArcGIS Developer へのサインイン（[ArcGIS Developer](https://developers.arcgis.com/)）が必要です。
 
 ## 動作環境
 
