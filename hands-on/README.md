@@ -140,10 +140,10 @@ define({
 }
 ```
 
-:::note info
-Note: 作成するバッファーのデフォルトの距離単位を設定する場合、  
-`config.json` ファイルに以下のコードを入力し、保存します。  
-:::
+> ### Note
+>
+> 作成するバッファーのデフォルトの距離単位を設定する場合、  
+> `config.json` ファイルに以下のコードを入力し、保存します。  
 
 ```json
 {
@@ -766,8 +766,7 @@ export default class Widget extends React.PureComponent<AllWidgetProps<any>, any
 4. マップ ウィジェット上の任意の地点をクリックします。バッファーが作成され、バッファー内のフィーチャがハイライトされます。  
 ![バッファー検索実行](./img/createBuffer.png)
 
-:::note info
-Note
- Experiecne Builder にテーブル ウィジェットやチャート ウィジェット（データを「選択したフィーチャ」を選択した場合）を追加しているとバッファー検索ウィジェットで選択されたフィーチャが連携されます。
-:::
+>### Note
+> Experiecne Builder にテーブル ウィジェットやチャート ウィジェット（データを「選択したフィーチャ」を選択した場合）を追加しているとバッファー検索ウィジェットで選択されたフィーチャが連携されます。
+>
 ![データ連携](./img/selectLinkWidget.gif)
